@@ -23,7 +23,7 @@ import java.net.Socket;
  * @updates:
  ****/
 
-public class Client {
+public class HTMLReader {
 
 	private final String SERVER;
 	private final int PORT;
@@ -35,7 +35,7 @@ public class Client {
 	 * @param server the host name of the machine on which the server is running
 	 * @param port   the TCP Port that the client and server will communicate over
 	 */
-	public Client(String server, int port, String path) {
+	public HTMLReader(String server, int port, String path) {
 		this.SERVER = server;
 		this.PORT = port;
 		this.FILE_PATH = path;
@@ -49,7 +49,7 @@ public class Client {
 	 * @throws IOException
 	 */
 	public static void main(String[] args) throws IOException {
-		Client c = new Client("localhost", 81, "src/main/resources/wp-sandbox.html");
+		HTMLReader c = new HTMLReader("localhost", 81, "src/main/resources/wp-sandbox.html");
 		String htmlString = c.getWebPage(c.getServer(), c.getPort()).toString();
 		c.writeToFile(htmlString, c.getFilePath());
 	}
